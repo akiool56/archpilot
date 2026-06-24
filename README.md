@@ -1,5 +1,7 @@
 # ArchPilot（架构领航）
 
+**中文 | [English](#archpilot-architecture-pilot)**
+
 > **架构第一行，别让它变成你未来三个月重构的第一行。**
 
 ArchPilot（架构领航）是一个面向 **AI 编程新手** 的 **引导型 LLM 可执行架构设计 Skill**。它不会替你写完全部代码然后离开，而是像一位耐心的架构导师，从第一句话开始，带你一起 **规划边界、拆解模块、建立契约、逐步迭代**——让你少走弯路、少花 token、少在「当初要是这样设计就好了」里后悔。
@@ -146,3 +148,156 @@ OK: skill package structure is valid.
 > 好的代码不是生成出来的，是**想清楚后，一步一步建出来的**。
 >
 > ArchPilot 陪你完成第一步，也陪你走好每一步。
+
+---
+
+# ArchPilot (Architecture Pilot)
+
+**[中文](#archpilot架构领航) | English**
+
+> **Get the architecture right from the first line, so you don't spend the next three months refactoring it.**
+
+ArchPilot is a **guided, LLM-executable architecture design Skill** for **AI-coding beginners**. It won't write all your code and disappear. Instead, it acts like a patient architecture mentor: starting from your very first sentence, it helps you **define boundaries, break down modules, establish contracts, and iterate step by step**—so you take fewer detours, waste fewer tokens, and avoid the regret of "if only I had designed it this way from the start."
+
+---
+
+## ✨ Why ArchPilot?
+
+### 🧭 1. Plan First, Code Second
+
+Most projects don't fail because they can't be built—they fail because no one thought them through at the start. ArchPilot puts **architecture planning** first: understand requirements, identify roles, split responsibilities, then implement. Every line of code has a clear home.
+
+### 🦮 2. Guided, Not Command-Based
+
+You're not throwing wishes into a black box. ArchPilot uses **one-question-at-a-time guided conversations**, usually A/B/C/D/E choices, explaining *why* each choice matters and letting you confirm, adjust, and learn. Perfect for beginners building engineering intuition.
+
+### 🌱 3. Built for Beginner Developers
+
+You don't need ten years of architecture experience to build a clean project. Jargon is explained, choices come with reasons, and complex decisions are broken into small, understandable steps. Growth starts with your first hands-on attempt.
+
+### 💰 4. Saves Tokens Significantly
+
+Through a clear three-layer mechanism (Requirement Translation → Architecture Design → LLM Execution), fixed input templates, and module-level output structure, ArchPilot avoids repeatedly generating full codebases and repeatedly fixing them. Spend tokens where they matter, not on "let's try again."
+
+### 🏗️ 5. A Great Initial Architecture Beats Ten Late Refactors
+
+Your initial architecture determines how much technical debt you'll pay later. ArchPilot emphasizes **"get the skeleton right from the start"**: clear boundaries, explicit dependencies, and reserved extension points. The smaller the project, the more it deserves careful design.
+
+### 📦 6. Independently Encapsulated Modules
+
+Every feature is designed as a module that can be **understood, modified, and tested independently**. Each module has an entry, an exit, and a contract. In the final design package, every module specifies: responsibility, non-responsibility, input, output, public interface, hidden internals, dependencies, extension points, and test focus.
+
+### 🔗 7. High Cohesion, Low Coupling
+
+ArchPilot follows and teaches core modular design principles: related things stay together; unrelated things interact through stable interfaces. Change one place without touching ten others. At the same time, it sticks to **"responsibility complete, not technically complex"**—covering everything a real app needs without defaulting to microservices, message queues, complex DDD, multi-tenancy, or enterprise-level overengineering.
+
+### 🔄 8. Iterative Guidance
+
+It's not a one-time architecture diagram you never look at again. ArchPilot supports **multi-round, incremental, reversible** iteration: new requirement? Go back to the planning layer, analyze the impact, then implement the change.
+
+---
+
+## 🚀 Who Is It For?
+
+- Beginners entering LLM app development who want to build projects that look "real"
+- Developers who want to grow architectural thinking, not just prompt-tuning skills
+- Efficiency seekers who hate rework and want to start on the right path
+- Tech Leads who need a shared language for onboarding teams or newcomers
+
+---
+
+## 🛠️ One-Line Positioning
+
+**ArchPilot = the right way to start your first AI project.**
+
+---
+
+## 📦 Installation
+
+ArchPilot is a Skill package recognized by AI coding tools such as Claude / Cursor. Installation is simple:
+
+### Project-Level Installation (Recommended)
+
+Copy this repository into your project directory:
+
+```text
+your-project/.claude/skills/archpilot/
+```
+
+### User-Level Installation
+
+Copy it to your user directory so all projects can access it:
+
+```text
+~/.claude/skills/archpilot/
+```
+
+> **Note**: The final structure must be `~/.claude/skills/archpilot/SKILL.md`. `SKILL.md` must sit **directly** under the `archpilot` directory—do not add an extra version folder layer.
+
+### Validate Installation
+
+Enter the Skill directory and run:
+
+```bash
+python scripts/validate_skill.py
+```
+
+A successful installation shows:
+
+```text
+OK: skill package structure is valid.
+```
+
+---
+
+## 🎯 How to Invoke
+
+After installation, start ArchPilot in Claude / Cursor or any Skill-supported AI coding tool using any of the following:
+
+### Recommended Invocation (Most Complete)
+
+```text
+请使用 archpilot skill。我想做一个 AI 简历改写工具。请按一步一步选择的方式，引导我确定需求、MVP、中文界面、UI风格、复杂度、模块职责、接口预留、真实 LLM 配置和分阶段编码方案。
+```
+
+### Quick Invocation
+
+```text
+/archpilot 我想做一个 AI 简历改写工具。
+```
+
+Or:
+
+```text
+请使用 ArchPilot（架构领航）skill。我想做一个 AI 简历改写工具。
+```
+
+### Expected Behavior
+
+- Asks one multiple-choice question at a time, like a wizard;
+- Translates your natural-language idea into structured requirements;
+- Analyzes complexity and narrows the scope to MVP when needed;
+- Produces a requirement confirmation draft for your approval;
+- After confirmation, outputs the **《AI 编程项目 LLM 开发设计包》** (LLM Development Design Package);
+- Every module includes detailed responsibility contracts, interface boundaries, extension points, and change-impact analysis;
+- Output can be handed directly to Claude Code, Cursor, Codex, Windsurf, Trae, or similar AI coding tools for staged execution.
+
+---
+
+## 📦 Repository Contents
+
+- `SKILL.md` — Skill entry point and core workflow
+- `docs/` — Installation, naming conventions, and usage guides
+- `references/` — Architecture rules, module contracts, complexity rubrics, change-impact analysis, and other decision references
+- `templates/` — Confirmation drafts, stage prompts, and LLM development design package templates
+- `examples/` — Real-world examples (contract analyzer, document summarizer, resume rewriter, etc.)
+- `scripts/validate_skill.py` — Skill structure validation script
+- `tests/smoke-test-prompts.md` — Smoke-test prompts
+
+---
+
+## 📣 Our Belief
+
+> Great code isn't generated—it's **built step by step, after thinking it through**.
+>
+> ArchPilot walks with you through the first step, and every step after.
